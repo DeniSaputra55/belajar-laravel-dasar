@@ -39,6 +39,7 @@ class ServiceContainerTest extends TestCase
     self::assertEquals("eko", $person2->firstName);
     self::assertNotSame($person1, $person2);
    }
+   //kode instance
    public function testInstance()
     {
         $person = new Person("Eko", "Khannedy");
@@ -56,9 +57,11 @@ class ServiceContainerTest extends TestCase
     //singleton
     public function testDependencyInjection()
     {
+        //kode dependency injection
         $this->app->singleton(Foo::class, function ($app){
             return new Foo();
         });
+        //dependency injectio closure
         $this->app->singleton(Bar::class, function ($app){
             $foo = $app->make(Foo::class);
             return new Bar($foo);
@@ -71,6 +74,7 @@ class ServiceContainerTest extends TestCase
         self::assertSame($foo, $bar1->foo);
         self::assertSame($bar1, $bar2);
     }
+    //test hello service
     public function testInterfaceToClass()
     {
         // $this->app->singleton(HelloService::class, HelloServiceIndonesia::class);
