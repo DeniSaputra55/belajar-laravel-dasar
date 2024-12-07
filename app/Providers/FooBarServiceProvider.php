@@ -9,8 +9,10 @@ use App\Services\HelloServiceIndonesia;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
+//deferabble provider
 class FooBarServiceProvider extends ServiceProvider implements DeferrableProvider
 {
+    //singleton properties
     public array $singletons = [
         HelloService::class => HelloServiceIndonesia::class
     ];
